@@ -1,4 +1,4 @@
-package com.projetoAI.Project.AI.models;
+package com.projetoAI.Project.AI.dtos;
 
 public class PerguntaDTO {
     private String pergunta;

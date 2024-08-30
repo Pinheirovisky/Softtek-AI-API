@@ -1,0 +1,42 @@
+[
+  {
+    "cd_usuario": "12345",
+    "nome": "João",
+    "email": "@email.com",
+    "senha": "abcdef",
+    "telefone": "(11)98765-4321",
+    "grupo_de_atribuicao": "N1-ACESSOS-SAP"
+  },
+  {
+    "cd_usuario": "23451",
+    "nome": "Artur",
+    "email": "artur@email.com",
+    "senha": "12345",
+    "telefone": "(21)95678-4321",
+    "grupo_de_atribuicao": "N1-OUTROS"
+  },
+  {
+    "cd_usuario": "34512",
+    "nome": "Vinicius",
+    "email": "@email.com",
+    "senha": "senha",
+    "telefone": "(11)91234-5678",
+    "grupo_de_atribuicao": "N2-LEG-SAT"
+  },
+  {
+    "cd_usuario": "45123",
+    "nome": "Lucas",
+    "email": "@email.com",
+    "senha": "9876",
+    "telefone": "(41)92345-19876",
+    "grupo_de_atribuicao": "N1-ACESSOS-SAP"
+  },
+  {
+    "cd_usuario": "51234",
+    "nome": "Maria",
+    "email": "maria@email.com",
+    "senha": "minhasenhalegal",
+    "telefone": "(11)94321-9876",
+    "grupo_de_atribuicao": "N2-AT-EXTERNOS"
+  }
+]

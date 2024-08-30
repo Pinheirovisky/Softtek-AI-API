@@ -143,8 +143,40 @@ public class Chamado {
         this.resolucao = resolucao;
     }
 
+    public String toStringSimplificado(){
+        return String.format("""
+              Chamado: %s,
+              Descrição do Problema: %s,
+              Aberto em: %s""",numero, aberto, descricao);
+    }
+
     @Override
     public String toString() {
+        return String.format("""
+              Chamado: %s,
+              Aberto em: %s,
+              Data Atualização: %s,
+              Status: %s,
+              Data de Resolução: %s,
+              Categoria do Relatório: %s,
+              Subcategoria do Relatório: %s,
+              Sintoma: %s,
+              Qualificação do Sintoma: %s,
+              Grupo de Atribuição: %s,
+              Categoria: %s,
+              Atribuido a: %s,
+              Prioridade: %s,
+              Data de Encerramento: %s,
+              Solicitante: %s,
+              Local: %s,
+              Descrição do Problema: %s,
+              Comentários Visíveis: %s,
+              Comentários Visíveis: %s""",numero, aberto, atualizado_em, estado_relatorio, resolvido_relatorio, categoria_relatorio,
+                subcategoria_relatorio, sintoma, qualificacao_sintoma, grupo_de_atribuicao, categoria, atribuido_a,
+                prioridade, encerrado, solicitante_tarefa, local,
+                descricao, comentarios_visiveis_pergunta, comentarios_visiveis_resposta, resolucao);
+    }
+    public String toJson() {
         return String.format("""
                 {
                   "numero" : "%s",
@@ -172,15 +204,13 @@ public class Chamado {
                 descricao, comentarios_visiveis_pergunta, comentarios_visiveis_resposta, resolucao);
     }
 
-    public String toAI(){
-        return "{ \"numero\": \""+numero+"\", \"categoria_relatorio\": \""+categoria_relatorio +"\", " +
-                "\"subcategoria_relatorio\": \""+subcategoria_relatorio +"\", \"sintoma\": \""+sintoma +"\",  " +
-                "\"qualificacao_sintoma\": \""+qualificacao_sintoma +"\", \"grupo_de_atribuicao\":  " +
-                "\""+grupo_de_atribuicao +"\", \"categoria\": \""+categoria +"\", \"atribuido_a\":  " +
-                "\""+atribuido_a +"\", \"prioridade\": \""+prioridade +"\", \"solicitante_tarefa\":  " +
-                "\""+solicitante_tarefa +"\", \"local\": \""+local +"\", \"descricao\": \""+descricao +"\",  " +
-                "\"comentarios_visiveis_pergunta\": \""+comentarios_visiveis_pergunta +"\",  " +
-                "\"comentarios_visiveis_resposta\": \""+comentarios_visiveis_resposta +"\", \"resolucao\": \""+resolucao +"\" }";
+    public String toAI() {
+        return String.format("""
+        { \\n         \\"numero \\":  \\"%s\\", \\n         \\"categoria_relatorio \\":  \\"%s \\", \\n         \\"subcategoria_relatorio \\":  \\"%s \\", \\n         \\"sintoma \\":  \\"%s \\", \\n         \\"qualificacao_sintoma \\":  \\"%s \\", \\n         \\"grupo_de_atribuicao \\":  \\"%s \\", \\n         \\"categoria \\":  \\"%s \\", \\n         \\"atribuido_a \\":  \\"%s \\", \\n         \\"prioridade \\":  \\"%s \\", \\n         \\"solicitante_tarefa \\":  \\"%s \\", \\n         \\"local \\":  \\"%s \\", \\n         \\"descricao \\":  \\"%s \\", \\n         \\"comentarios_visiveis_pergunta \\":  \\"%s \\", \\n         \\"comentarios_visiveis_resposta \\":  \\"%s \\", \\n         \\"resolucao \\":  \\"%s \\" \\n    } \\n""",
+                numero, categoria_relatorio, subcategoria_relatorio, sintoma, qualificacao_sintoma, grupo_de_atribuicao,
+                categoria, atribuido_a, prioridade, solicitante_tarefa, local, descricao, comentarios_visiveis_pergunta,
+                comentarios_visiveis_resposta, resolucao
+        );
     }
 
 

@@ -5,6 +5,12 @@ import com.projetoAI.Project.AI.factories.ChamadoFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @Service
@@ -32,4 +38,6 @@ public class ChamadoService {
     public List<Chamado> getChamadosResolvidos() {
         return chamadoFactory.createChamadosResolvidos();
     }
+
+
 }

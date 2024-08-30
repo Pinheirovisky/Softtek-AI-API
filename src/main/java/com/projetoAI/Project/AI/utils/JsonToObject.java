@@ -2,25 +2,24 @@ package com.projetoAI.Project.AI.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.projetoAI.Project.AI.gemini.GeminiResponse;
+import com.projetoAI.Project.AI.dtos.GeminiResponseDTO;
 
 public class JsonToObject {
 
-    public GeminiResponse JsonToResponse(String jsonString) {
-        // Create Gson object
+    // Recebe a String do HttpResponse.body e transforma em um objeto GeminiResponse
+    public static GeminiResponseDTO JsonToResponse(String jsonString) throws NullPointerException{
         Gson gson = new GsonBuilder().create();
 
-        // Convert JSON string to Java object
-        RespostaRaiz respostaRaiz = gson.fromJson(jsonString, RespostaRaiz.class);
+        GeminiDTO geminiDTO = gson.fromJson(jsonString, GeminiDTO.class);
 
-        GeminiResponse resposta = gson.fromJson(respostaRaiz.getCandidates()[0].getContent().getParts()[0].getText(), GeminiResponse.class);
+        GeminiResponseDTO resposta = gson.fromJson(geminiDTO.getCandidates()[0].getContent().getParts()[0].getText(), GeminiResponseDTO.class);
 
         // Access data from the object
         return resposta;
     }
 
-    // Define classes for the JSON structure
-    public static class RespostaRaiz {
+    // Classes Para Tranferencia de dados
+    private static class GeminiDTO {
         private Candidate[] candidates;
         private UsageMetadata usageMetadata;
 
@@ -32,8 +31,7 @@ public class JsonToObject {
             return usageMetadata;
         }
     }
-
-    public static class Candidate {
+    private static class Candidate {
         private Content content;
         private String finishReason;
         private int index;
@@ -55,8 +53,7 @@ public class JsonToObject {
             return safetyRatings;
         }
     }
-
-    public static class Content {
+    private static class Content {
         private Part[] parts;
         private String role;
 
@@ -68,16 +65,14 @@ public class JsonToObject {
             return role;
         }
     }
-
-    public static class Part {
+    private static class Part {
         private String text;
 
         public String getText() {
             return text;
         }
     }
-
-    public static class SafetyRating {
+    private static class SafetyRating {
         private String category;
         private String probability;
 
@@ -89,8 +84,7 @@ public class JsonToObject {
             return probability;
         }
     }
-
-    public static class UsageMetadata {
+    private static class UsageMetadata {
         private int promptTokenCount;
         private int candidatesTokenCount;
         private int totalTokenCount;
